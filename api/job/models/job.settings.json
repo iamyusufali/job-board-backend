@@ -1,0 +1,30 @@
+{
+  "kind": "collectionType",
+  "collectionName": "jobs",
+  "info": {
+    "name": "job"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "location": {
+      "type": "string"
+    },
+    "full_time": {
+      "type": "boolean"
+    },
+    "description": {
+      "type": "richtext"
+    },
+    "job_title": {
+      "type": "string"
+    },
+    "contact_email": {
+      "type": "string"
+    }
+  }
+}
