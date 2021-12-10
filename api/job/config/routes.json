@@ -10,6 +10,14 @@
     },
     {
       "method": "GET",
+      "path": "/jobs/my",
+      "handler": "job.findMy",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
       "path": "/jobs/count",
       "handler": "job.count",
       "config": {
