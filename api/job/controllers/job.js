@@ -23,9 +23,7 @@ module.exports = {
       const jwtToken = authorization.split(" ")?.[1];
       const decoded = jwt.decode(jwtToken);
 
-      entities = entities.filter(
-        (entity) => entity.users_permissions.id === decoded.id
-      );
+      entities = entities.filter((entity) => entity.user.id === decoded.id);
     }
 
     return entities.map((entity) =>
