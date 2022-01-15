@@ -2,7 +2,8 @@
   "kind": "collectionType",
   "collectionName": "jobs",
   "info": {
-    "name": "job"
+    "name": "job",
+    "description": ""
   },
   "options": {
     "increments": true,
@@ -12,7 +13,8 @@
   "pluginOptions": {},
   "attributes": {
     "job_title": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "location": {
       "type": "string"
@@ -26,7 +28,7 @@
     "description": {
       "type": "richtext"
     },
-    "user": {
+    "owner": {
       "plugin": "users-permissions",
       "model": "user",
       "via": "jobs"
