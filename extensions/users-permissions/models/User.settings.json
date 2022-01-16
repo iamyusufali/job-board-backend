@@ -60,7 +60,7 @@
       "configurable": false
     },
     "jobs": {
-      "via": "user",
+      "via": "owner",
       "collection": "job"
     }
   }
