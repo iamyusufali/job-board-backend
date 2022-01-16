@@ -44,4 +44,59 @@ module.exports = {
       sanitizeEntity(entity, { model: strapi.models.job })
     );
   },
+
+  /**
+   * Update a record.
+   *
+   * @return {Object}
+   */
+
+  async update(ctx) {
+    const { id } = ctx.params;
+
+    let entity;
+
+    const [job] = await strapi.services.job.find({
+      id,
+      "owner.id": ctx.state.user.id,
+    });
+
+    if (!job) {
+      return ctx.unauthorized(`You can't update this entry`);
+    }
+
+    if (ctx.is("multipart")) {
+      const { data, files } = parseMultipartData(ctx);
+      entity = await strapi.services.job.update({ id }, data, {
+        files,
+      });
+    } else {
+      entity = await strapi.services.job.update({ id }, ctx.request.body);
+    }
+
+    return sanitizeEntity(entity, { model: strapi.models.job });
+  },
+
+  /**
+   * Delete a record.
+   *
+   * @return {Object}
+   */
+
+  async delete(ctx) {
+    const { id } = ctx.params;
+
+    const [job] = await strapi.services.job.find({
+      id,
+      "owner.id": ctx.state.user.id,
+    });
+
+    if (!job) {
+      return ctx.unauthorized(`You can't update this entry`);
+    }
+
+    const entity = await strapi.services.job.delete({ id });
+
+    return sanitizeEntity(entity, { model: strapi.models.job });
+  },
 };
