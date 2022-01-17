@@ -1,0 +1,12 @@
+{
+  "routes": [
+    {
+      "method": "POST",
+      "path": "/logout",
+      "handler": "custom.logout",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}
